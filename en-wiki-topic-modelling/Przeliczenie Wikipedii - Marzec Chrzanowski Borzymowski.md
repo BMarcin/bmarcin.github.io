@@ -1,12 +1,13 @@
 # Przeliczenie Wikipedii
-## Link z efektami obliczeń
-https://mega.nz/#F!1xlBiYBQ!Fd3I4-TjpfNabl0wViY4_Q
+## Linki
++ [Efekty obliczeń](https://mega.nz/#F!1xlBiYBQ!Fd3I4-TjpfNabl0wViY4_Q)
++ [Notebook](https://github.com/BMarcin/bmarcin.github.io/blob/master/en-wiki-topic-modelling/Notebook%20.ipynb)
 
 ## Faza wstępna
 Zgodnie z [poradnikiem](https://radimrehurek.com/gensim/wiki.html) na samym początku wykonujemy instrukcję ```python -m gensim.scripts.make_wiki```(```python -m gensim.scripts.make_wikicorpus``` w nowszych wersjach). Skrypt ma za zadanie przetworzyć artykuły z wikipedii na wektory. 
 
 Na samym początku archiwum bzip2 jest rozpakowywane, a plik XML trafia do wstępnej filtracji. W tym procesie usuwane są m.in. komentarze, zewnętrzne linki, równania matematyczne czy też tagi, a wiersze tabeli zapisywane są do pojedyńczych wierszy. Funkcja wykonuje również lemmatyzację i tokenizację. W kolejnych krokach odrzuca słowa, których liczba wystąpień w dokumentach jest poniżej 20. Następnie funkcja przeprowadza serializację i zapisuje efekty obliczeń do plików:
-### wordids.txt.bz2
+### results_wordids.txt.bz2
 ```
 4624611
 3492    aa  20588
@@ -25,7 +26,7 @@ Na samym początku archiwum bzip2 jest rozpakowywane, a plik XML trafia do wstę
 99903   同中書門下平章事    409
 ```
 Plik w pierwszym wierszu zawiera liczbę dokumentów korpusu. W kolejnych wierszach zapisane jest ID słowa, słowo oraz ilość wystąpień w dokumentach.
-### bow.mm
+### results_bow.mm
 #### Format Matrix Market
 Dane w tym pliku zapisane są w formacie *Matrix Market*. Ten format zapisu cechuje się tym, że posiada dwa wiersze nagłówkowe:
 
@@ -49,7 +50,7 @@ Dane w tym pliku zapisane są w formacie *Matrix Market*. Ten format zapisu cech
 4624611 75707 1
 ```
 Plik zawiera reprezentację macierz Bag Of Words opisującą liczbę unikalnych słów w dokumencie w całym korpusie.
-### bow.mm.index
+### results_bow.mm.index
 ```
 8002 5d71 0028 4b61 4d54 324d 1e69 4dc8
 ...
@@ -57,7 +58,7 @@ Plik zawiera reprezentację macierz Bag Of Words opisującą liczbę unikalnych 
 652e 
 ```
 Plik zawierający dodatkowe indeksy dla pliku *bow.mm*
-### bow.mm.metadata.cpickle
+### results_bow.mm.metadata.cpickle
 ```
 8002 7d71 0028 4b00 5802 0000 0031 3271
 ...
@@ -72,7 +73,7 @@ X334q(XInternational Atomic Timeq)�q*KX336q+XAltruismq,�q-KX339q.XAy
 Allan
 ```
 przeglądając plik *tytuly_dokumentow*(zawiera on wszystkie tytuły dokumentów składających się na korpus) możemy zauważyć zgodność nazw.
-### tfidf.mm
+### results_tfidf.mm
 ```
 %%MatrixMarket matrix coordinate real general
 4624611 100000 732204092
@@ -93,7 +94,7 @@ Plik zapisany jest w formacie *Matrix Market*. W pierwszej kolumnie wyników zap
 Term Frequency Inverse Document Frequency jest metodą obliczania wagi słów w oparciu o liczbę ich wystąpień... [[wiki](https://pl.wikipedia.org/wiki/TFIDF)].
 
 Algorytm ma za zadanie przypisać niską wartość IDF dla najczęściej występujących słów w korpusie, tak by poszczególna liczba wystąpień słowa w poszczególnym dokumencie(TF) opisywała jego "ważność".
-### tfidf.mm.index 
+### results_tfidf.mm.index 
 ```
 8002 5d71 0028 4b61 4d4c a54a 1752 0100
 ...
@@ -101,7 +102,7 @@ Algorytm ma za zadanie przypisać niską wartość IDF dla najczęściej występ
 46c1 b5ab 058a 058b c5b5 ab05 652e 
 ```
 Plik zawierający indeksy dla pliku *tfidf.mm*
-### .tfidf_model
+### results.tfidf_model
 ```
 8002 6367 656e 7369 6d2e 6d6f 6465 6c73
 ...

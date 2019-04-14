@@ -34,7 +34,10 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" style="position: relative;"><h1 id="Przeliczenie-Wikipedii"><a class="anchor hidden-xs" href="#Przeliczenie-Wikipedii" title="Przeliczenie-Wikipedii"><span class="octicon octicon-link"></span></a>Przeliczenie Wikipedii</h1><h2 id="Link-z-efektami-obliczeń"><a class="anchor hidden-xs" href="#Link-z-efektami-obliczeń" title="Link-z-efektami-obliczeń"><span class="octicon octicon-link"></span></a>Link z efektami obliczeń</h2><p><a href="https://mega.nz/#F!1xlBiYBQ!Fd3I4-TjpfNabl0wViY4_Q" target="_blank" rel="noopener">https://mega.nz/#F!1xlBiYBQ!Fd3I4-TjpfNabl0wViY4_Q</a></p><h2 id="Faza-wstępna"><a class="anchor hidden-xs" href="#Faza-wstępna" title="Faza-wstępna"><span class="octicon octicon-link"></span></a>Faza wstępna</h2><p>Zgodnie z <a href="https://radimrehurek.com/gensim/wiki.html" target="_blank" rel="noopener">poradnikiem</a> na samym początku wykonujemy instrukcję <code>python -m gensim.scripts.make_wiki</code>(<code>python -m gensim.scripts.make_wikicorpus</code> w nowszych wersjach). Skrypt ma za zadanie przetworzyć artykuły z wikipedii na wektory.</p><p>Na samym początku archiwum bzip2 jest rozpakowywane, a plik XML trafia do wstępnej filtracji. W tym procesie usuwane są <a href="http://m.in" target="_blank" rel="noopener">m.in</a>. komentarze, zewnętrzne linki, równania matematyczne czy też tagi, a wiersze tabeli zapisywane są do pojedyńczych wierszy. Funkcja wykonuje również lemmatyzację i tokenizację. W kolejnych krokach odrzuca słowa, których liczba wystąpień w dokumentach jest poniżej 20. Następnie funkcja przeprowadza serializację i zapisuje efekty obliczeń do plików:</p><h3 id="wordidstxtbz2"><a class="anchor hidden-xs" href="#wordidstxtbz2" title="wordidstxtbz2"><span class="octicon octicon-link"></span></a>wordids.txt.bz2</h3><pre><code>4624611
+    <div id="doc" class="markdown-body container-fluid comment-enabled" style="position: relative;"><h1 id="Przeliczenie-Wikipedii"><a class="anchor hidden-xs" href="#Przeliczenie-Wikipedii" title="Przeliczenie-Wikipedii"><span class="octicon octicon-link"></span></a>Przeliczenie Wikipedii</h1><h2 id="Linki"><a class="anchor hidden-xs" href="#Linki" title="Linki"><span class="octicon octicon-link"></span></a>Linki</h2><ul>
+<li><a href="https://mega.nz/#F!1xlBiYBQ!Fd3I4-TjpfNabl0wViY4_Q" target="_blank" rel="noopener">Efekty obliczeń</a></li>
+<li><a href="https://github.com/BMarcin/bmarcin.github.io/blob/master/en-wiki-topic-modelling/Notebook%20.ipynb" target="_blank" rel="noopener">Notebook</a></li>
+</ul><h2 id="Faza-wstępna"><a class="anchor hidden-xs" href="#Faza-wstępna" title="Faza-wstępna"><span class="octicon octicon-link"></span></a>Faza wstępna</h2><p>Zgodnie z <a href="https://radimrehurek.com/gensim/wiki.html" target="_blank" rel="noopener">poradnikiem</a> na samym początku wykonujemy instrukcję <code>python -m gensim.scripts.make_wiki</code>(<code>python -m gensim.scripts.make_wikicorpus</code> w nowszych wersjach). Skrypt ma za zadanie przetworzyć artykuły z wikipedii na wektory.</p><p>Na samym początku archiwum bzip2 jest rozpakowywane, a plik XML trafia do wstępnej filtracji. W tym procesie usuwane są <a href="http://m.in" target="_blank" rel="noopener">m.in</a>. komentarze, zewnętrzne linki, równania matematyczne czy też tagi, a wiersze tabeli zapisywane są do pojedyńczych wierszy. Funkcja wykonuje również lemmatyzację i tokenizację. W kolejnych krokach odrzuca słowa, których liczba wystąpień w dokumentach jest poniżej 20. Następnie funkcja przeprowadza serializację i zapisuje efekty obliczeń do plików:</p><h3 id="results_wordidstxtbz2"><a class="anchor hidden-xs" href="#results_wordidstxtbz2" title="results_wordidstxtbz2"><span class="octicon octicon-link"></span></a>results_wordids.txt.bz2</h3><pre><code>4624611
 3492	aa	20588
 12417	aaa	10647
 61944	aaaa	970
@@ -49,7 +52,7 @@
 91947	रत	398
 60195	वर	480
 99903	同中書門下平章事	409
-</code></pre><p>Plik w pierwszym wierszu zawiera liczbę dokumentów korpusu. W kolejnych wierszach zapisane jest ID słowa, słowo oraz ilość wystąpień w dokumentach.</p><h3 id="bowmm"><a class="anchor hidden-xs" href="#bowmm" title="bowmm"><span class="octicon octicon-link"></span></a><a href="http://bow.mm" target="_blank" rel="noopener">bow.mm</a></h3><h4 id="Format-Matrix-Market"><a class="anchor hidden-xs" href="#Format-Matrix-Market" title="Format-Matrix-Market"><span class="octicon octicon-link"></span></a>Format Matrix Market</h4><p>Dane w tym pliku zapisane są w formacie <em>Matrix Market</em>. Ten format zapisu cechuje się tym, że posiada dwa wiersze nagłówkowe:</p><ul>
+</code></pre><p>Plik w pierwszym wierszu zawiera liczbę dokumentów korpusu. W kolejnych wierszach zapisane jest ID słowa, słowo oraz ilość wystąpień w dokumentach.</p><h3 id="results_bowmm"><a class="anchor hidden-xs" href="#results_bowmm" title="results_bowmm"><span class="octicon octicon-link"></span></a>results_bow.mm</h3><h4 id="Format-Matrix-Market"><a class="anchor hidden-xs" href="#Format-Matrix-Market" title="Format-Matrix-Market"><span class="octicon octicon-link"></span></a>Format Matrix Market</h4><p>Dane w tym pliku zapisane są w formacie <em>Matrix Market</em>. Ten format zapisu cechuje się tym, że posiada dwa wiersze nagłówkowe:</p><ul>
 <li>w pierwszym  wierszu zawarto informacje, że jest to macierz gęstości (ang. Sparse Matrix),</li>
 <li>w drugim:
 <ul>
@@ -69,17 +72,17 @@
 4624611 60720 4
 4624611 62256 1
 4624611 75707 1
-</code></pre><p>Plik zawiera reprezentację macierz Bag Of Words opisującą liczbę unikalnych słów w dokumencie w całym korpusie.</p><h3 id="bowmmindex"><a class="anchor hidden-xs" href="#bowmmindex" title="bowmmindex"><span class="octicon octicon-link"></span></a>bow.mm.index</h3><pre><code>8002 5d71 0028 4b61 4d54 324d 1e69 4dc8
+</code></pre><p>Plik zawiera reprezentację macierz Bag Of Words opisującą liczbę unikalnych słów w dokumencie w całym korpusie.</p><h3 id="results_bowmmindex"><a class="anchor hidden-xs" href="#results_bowmmindex" title="results_bowmmindex"><span class="octicon octicon-link"></span></a>results_bow.mm.index</h3><pre><code>8002 5d71 0028 4b61 4d54 324d 1e69 4dc8
 ...
 8602 8a05 1e8b a786 028a 0517 8da7 8602
 652e 
-</code></pre><p>Plik zawierający dodatkowe indeksy dla pliku <em><a href="http://bow.mm" target="_blank" rel="noopener">bow.mm</a></em></p><h3 id="bowmmmetadatacpickle"><a class="anchor hidden-xs" href="#bowmmmetadatacpickle" title="bowmmmetadatacpickle"><span class="octicon octicon-link"></span></a>bow.mm.metadata.cpickle</h3><pre><code>8002 7d71 0028 4b00 5802 0000 0031 3271
+</code></pre><p>Plik zawierający dodatkowe indeksy dla pliku <em><a href="http://bow.mm" target="_blank" rel="noopener">bow.mm</a></em></p><h3 id="results_bowmmmetadatacpickle"><a class="anchor hidden-xs" href="#results_bowmmmetadatacpickle" title="results_bowmmmetadatacpickle"><span class="octicon octicon-link"></span></a>results_bow.mm.metadata.cpickle</h3><pre><code>8002 7d71 0028 4b00 5802 0000 0031 3271
 ...
 7268 6977 2050 7269 6f72 7972 a8b2 d300
 8672 a9b2 d300 752e 
 </code></pre><p>Plik zawiera tytuły dokumentów.</p><h4 id="Spostrzeżenie"><a class="anchor hidden-xs" href="#Spostrzeżenie" title="Spostrzeżenie"><span class="octicon octicon-link"></span></a>Spostrzeżenie</h4><p>Dekodując fragment pliku bow.mm.metadata.cpickle z postaci hexadecymalnej na tekstową otrzymujemy:</p><pre><code>X334q(XInternational Atomic Timeq)�q*KX336q+XAltruismq,�q-KX339q.XAyn Randq/�q0KX340q1XAlain Connesq2�q3KX344q4X
 Allan
-</code></pre><p>przeglądając plik <em>tytuly_dokumentow</em>(zawiera on wszystkie tytuły dokumentów składających się na korpus) możemy zauważyć zgodność nazw.</p><h3 id="tfidfmm"><a class="anchor hidden-xs" href="#tfidfmm" title="tfidfmm"><span class="octicon octicon-link"></span></a><a href="http://tfidf.mm" target="_blank" rel="noopener">tfidf.mm</a></h3><pre><code>%%MatrixMarket matrix coordinate real general
+</code></pre><p>przeglądając plik <em>tytuly_dokumentow</em>(zawiera on wszystkie tytuły dokumentów składających się na korpus) możemy zauważyć zgodność nazw.</p><h3 id="results_tfidfmm"><a class="anchor hidden-xs" href="#results_tfidfmm" title="results_tfidfmm"><span class="octicon octicon-link"></span></a>results_tfidf.mm</h3><pre><code>%%MatrixMarket matrix coordinate real general
 4624611 100000 732204092
 1 1 0.004745834596244937
 1 2 0.005488679175027676
@@ -90,11 +93,11 @@ Allan
 4624611 60720 0.46374362599696084
 4624611 62256 0.1113497078998276
 4624611 75707 0.13101622566862575
-</code></pre><p>Jest to najważniejszy plik, którego generowanie zajmuje najwięcej czasu. Stanowi on reprezentację wektorową całego korpusu.</p><p>Plik zapisany jest w formacie <em>Matrix Market</em>. W pierwszej kolumnie wyników zapisano ID dokumentu, dalej ID słowa i na końcu wynik TF-IDF.</p><h4 id="TF-IDF"><a class="anchor hidden-xs" href="#TF-IDF" title="TF-IDF"><span class="octicon octicon-link"></span></a>TF-IDF</h4><p>Term Frequency Inverse Document Frequency jest metodą obliczania wagi słów w oparciu o liczbę ich wystąpień… [<a href="https://pl.wikipedia.org/wiki/TFIDF" target="_blank" rel="noopener">wiki</a>].</p><p>Algorytm ma za zadanie przypisać niską wartość IDF dla najczęściej występujących słów w korpusie, tak by poszczególna liczba wystąpień słowa w poszczególnym dokumencie(TF) opisywała jego “ważność”.</p><h3 id="tfidfmmindex"><a class="anchor hidden-xs" href="#tfidfmmindex" title="tfidfmmindex"><span class="octicon octicon-link"></span></a>tfidf.mm.index</h3><pre><code>8002 5d71 0028 4b61 4d4c a54a 1752 0100
+</code></pre><p>Jest to najważniejszy plik, którego generowanie zajmuje najwięcej czasu. Stanowi on reprezentację wektorową całego korpusu.</p><p>Plik zapisany jest w formacie <em>Matrix Market</em>. W pierwszej kolumnie wyników zapisano ID dokumentu, dalej ID słowa i na końcu wynik TF-IDF.</p><h4 id="TF-IDF"><a class="anchor hidden-xs" href="#TF-IDF" title="TF-IDF"><span class="octicon octicon-link"></span></a>TF-IDF</h4><p>Term Frequency Inverse Document Frequency jest metodą obliczania wagi słów w oparciu o liczbę ich wystąpień… [<a href="https://pl.wikipedia.org/wiki/TFIDF" target="_blank" rel="noopener">wiki</a>].</p><p>Algorytm ma za zadanie przypisać niską wartość IDF dla najczęściej występujących słów w korpusie, tak by poszczególna liczba wystąpień słowa w poszczególnym dokumencie(TF) opisywała jego “ważność”.</p><h3 id="results_tfidfmmindex"><a class="anchor hidden-xs" href="#results_tfidfmmindex" title="results_tfidfmmindex"><span class="octicon octicon-link"></span></a>results_tfidf.mm.index</h3><pre><code>8002 5d71 0028 4b61 4d4c a54a 1752 0100
 ...
 8a05 77b1 b5ab 058a 05de b8b5 ab05 8a05
 46c1 b5ab 058a 058b c5b5 ab05 652e 
-</code></pre><p>Plik zawierający indeksy dla pliku <em><a href="http://tfidf.mm" target="_blank" rel="noopener">tfidf.mm</a></em></p><h3 id="tfidf_model"><a class="anchor hidden-xs" href="#tfidf_model" title="tfidf_model"><span class="octicon octicon-link"></span></a>.tfidf_model</h3><pre><code>8002 6367 656e 7369 6d2e 6d6f 6465 6c73
+</code></pre><p>Plik zawierający indeksy dla pliku <em><a href="http://tfidf.mm" target="_blank" rel="noopener">tfidf.mm</a></em></p><h3 id="resultstfidf_model"><a class="anchor hidden-xs" href="#resultstfidf_model" title="resultstfidf_model"><span class="octicon octicon-link"></span></a>results.tfidf_model</h3><pre><code>8002 6367 656e 7369 6d2e 6d6f 6465 6c73
 ...
 6ab6 8601 005d 72f0 2709 0068 0361 7562
 2e
@@ -315,15 +318,15 @@ M��Xaacq
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#Przeliczenie-Wikipedii" title="Przeliczenie Wikipedii">Przeliczenie Wikipedii</a><ul class="nav">
-<li><a href="#Link-z-efektami-obliczeń" title="Link z efektami obliczeń">Link z efektami obliczeń</a></li>
-<li><a href="#Faza-wstępna" title="Faza wstępna">Faza wstępna</a><ul class="nav">
-<li><a href="#wordidstxtbz2" title="wordids.txt.bz2">wordids.txt.bz2</a></li>
-<li><a href="#bowmm" title="bow.mm">bow.mm</a></li>
-<li><a href="#bowmmindex" title="bow.mm.index">bow.mm.index</a></li>
-<li><a href="#bowmmmetadatacpickle" title="bow.mm.metadata.cpickle">bow.mm.metadata.cpickle</a></li>
-<li><a href="#tfidfmm" title="tfidf.mm">tfidf.mm</a></li>
-<li><a href="#tfidfmmindex" title="tfidf.mm.index">tfidf.mm.index</a></li>
-<li><a href="#tfidf_model" title=".tfidf_model">.tfidf_model</a></li>
+<li class=""><a href="#Linki" title="Linki">Linki</a></li>
+<li class=""><a href="#Faza-wstępna" title="Faza wstępna">Faza wstępna</a><ul class="nav">
+<li class=""><a href="#results_wordidstxtbz2" title="results_wordids.txt.bz2">results_wordids.txt.bz2</a></li>
+<li class=""><a href="#results_bowmm" title="results_bow.mm">results_bow.mm</a></li>
+<li><a href="#results_bowmmindex" title="results_bow.mm.index">results_bow.mm.index</a></li>
+<li><a href="#results_bowmmmetadatacpickle" title="results_bow.mm.metadata.cpickle">results_bow.mm.metadata.cpickle</a></li>
+<li><a href="#results_tfidfmm" title="results_tfidf.mm">results_tfidf.mm</a></li>
+<li class=""><a href="#results_tfidfmmindex" title="results_tfidf.mm.index">results_tfidf.mm.index</a></li>
+<li><a href="#resultstfidf_model" title="results.tfidf_model">results.tfidf_model</a></li>
 <li><a href="#Dodatkowe-pliki" title="Dodatkowe pliki">Dodatkowe pliki</a></li>
 <li><a href="#Czasy-obliczeń" title="Czasy obliczeń">Czasy obliczeń</a></li>
 </ul>
@@ -335,11 +338,11 @@ M��Xaacq
 <li><a href="#Skrót-logów" title="Skrót logów">Skrót logów</a></li>
 </ul>
 </li>
-<li class=""><a href="#Model-LSI" title="Model LSI">Model LSI</a><ul class="nav">
+<li><a href="#Model-LSI" title="Model LSI">Model LSI</a><ul class="nav">
 <li><a href="#Opis-logów-modelu-gensim-dla-LSI--LSA" title="Opis logów modelu gensim dla LSI / LSA">Opis logów modelu gensim dla LSI / LSA</a></li>
 <li><a href="#Opis-informacji-z-debugera" title="Opis informacji z debugera">Opis informacji z debugera</a></li>
 <li><a href="#Domyślne-parametry-dla-modelu-LSI" title="Domyślne parametry dla modelu LSI">Domyślne parametry dla modelu LSI</a></li>
-<li class=""><a href="#Skrót-logów1" title="Skrót logów">Skrót logów</a></li>
+<li><a href="#Skrót-logów1" title="Skrót logów">Skrót logów</a></li>
 </ul>
 </li>
 <li><a href="#Podziękowania" title="Podziękowania">Podziękowania</a></li>
@@ -354,15 +357,15 @@ M��Xaacq
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Przeliczenie-Wikipedii" title="Przeliczenie Wikipedii">Przeliczenie Wikipedii</a><ul class="nav">
-<li><a href="#Link-z-efektami-obliczeń" title="Link z efektami obliczeń">Link z efektami obliczeń</a></li>
-<li><a href="#Faza-wstępna" title="Faza wstępna">Faza wstępna</a><ul class="nav">
-<li><a href="#wordidstxtbz2" title="wordids.txt.bz2">wordids.txt.bz2</a></li>
-<li><a href="#bowmm" title="bow.mm">bow.mm</a></li>
-<li><a href="#bowmmindex" title="bow.mm.index">bow.mm.index</a></li>
-<li><a href="#bowmmmetadatacpickle" title="bow.mm.metadata.cpickle">bow.mm.metadata.cpickle</a></li>
-<li><a href="#tfidfmm" title="tfidf.mm">tfidf.mm</a></li>
-<li><a href="#tfidfmmindex" title="tfidf.mm.index">tfidf.mm.index</a></li>
-<li><a href="#tfidf_model" title=".tfidf_model">.tfidf_model</a></li>
+<li class=""><a href="#Linki" title="Linki">Linki</a></li>
+<li class=""><a href="#Faza-wstępna" title="Faza wstępna">Faza wstępna</a><ul class="nav">
+<li class=""><a href="#results_wordidstxtbz2" title="results_wordids.txt.bz2">results_wordids.txt.bz2</a></li>
+<li class=""><a href="#results_bowmm" title="results_bow.mm">results_bow.mm</a></li>
+<li><a href="#results_bowmmindex" title="results_bow.mm.index">results_bow.mm.index</a></li>
+<li><a href="#results_bowmmmetadatacpickle" title="results_bow.mm.metadata.cpickle">results_bow.mm.metadata.cpickle</a></li>
+<li><a href="#results_tfidfmm" title="results_tfidf.mm">results_tfidf.mm</a></li>
+<li class=""><a href="#results_tfidfmmindex" title="results_tfidf.mm.index">results_tfidf.mm.index</a></li>
+<li><a href="#resultstfidf_model" title="results.tfidf_model">results.tfidf_model</a></li>
 <li><a href="#Dodatkowe-pliki" title="Dodatkowe pliki">Dodatkowe pliki</a></li>
 <li><a href="#Czasy-obliczeń" title="Czasy obliczeń">Czasy obliczeń</a></li>
 </ul>
@@ -374,11 +377,11 @@ M��Xaacq
 <li><a href="#Skrót-logów" title="Skrót logów">Skrót logów</a></li>
 </ul>
 </li>
-<li class=""><a href="#Model-LSI" title="Model LSI">Model LSI</a><ul class="nav">
+<li><a href="#Model-LSI" title="Model LSI">Model LSI</a><ul class="nav">
 <li><a href="#Opis-logów-modelu-gensim-dla-LSI--LSA" title="Opis logów modelu gensim dla LSI / LSA">Opis logów modelu gensim dla LSI / LSA</a></li>
 <li><a href="#Opis-informacji-z-debugera" title="Opis informacji z debugera">Opis informacji z debugera</a></li>
 <li><a href="#Domyślne-parametry-dla-modelu-LSI" title="Domyślne parametry dla modelu LSI">Domyślne parametry dla modelu LSI</a></li>
-<li class=""><a href="#Skrót-logów1" title="Skrót logów">Skrót logów</a></li>
+<li><a href="#Skrót-logów1" title="Skrót logów">Skrót logów</a></li>
 </ul>
 </li>
 <li><a href="#Podziękowania" title="Podziękowania">Podziękowania</a></li>
