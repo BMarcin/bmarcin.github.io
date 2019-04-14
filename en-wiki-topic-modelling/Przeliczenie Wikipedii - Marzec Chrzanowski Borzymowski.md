@@ -9,20 +9,20 @@ Na samym początku archiwum bzip2 jest rozpakowywane, a plik XML trafia do wstę
 ### wordids.txt.bz2
 ```
 4624611
-3492	aa	20588
-12417	aaa	10647
-61944	aaaa	970
-78225	aaas	1105
-53633	aab	1134
-19224	aac	2072
-29103	aachen	4639
+3492    aa  20588
+12417   aaa 10647
+61944   aaaa    970
+78225   aaas    1105
+53633   aab 1134
+19224   aac 2072
+29103   aachen  4639
 ...
-91946	कर	410
-65117	पर	366
-96081	मह	398
-91947	रत	398
-60195	वर	480
-99903	同中書門下平章事	409
+91946   कर  410
+65117   पर  366
+96081   मह  398
+91947   रत  398
+60195   वर  480
+99903   同中書門下平章事    409
 ```
 Plik w pierwszym wierszu zawiera liczbę dokumentów korpusu. W kolejnych wierszach zapisane jest ID słowa, słowo oraz ilość wystąpień w dokumentach.
 ### bow.mm
@@ -31,9 +31,9 @@ Dane w tym pliku zapisane są w formacie *Matrix Market*. Ten format zapisu cech
 
 + w pierwszym  wierszu zawarto informacje, że jest to macierz gęstości (ang. Sparse Matrix),
 + w drugim: 
-	+ 4624611 wierszy,
-	+ 100000 kolumn,
-	+ 732204092 wartości niezerowych,
+    + 4624611 wierszy,
+    + 100000 kolumn,
+    + 732204092 wartości niezerowych,
 + w kolejnych wyliczone wartości.
 
 ```
@@ -116,7 +116,7 @@ Po konwersji z wartości hex na tekst kilku początkowych linii pliku otrzymujem
 TfidfModel
 q)�q}q(Xid2wordqcgensim.corpora.dictionary
 Dictionary
-q)�q}q(Xtoken2idq}q(Xaaq	M�
+q)�q}q(Xtoken2idq}q(Xaaq M�
 Xaaaq
 M�0XaaaaqM��XaaasqJ�1Xaabq
 M��Xaacq
@@ -346,3 +346,9 @@ INFO : processed documents up to #280000
 ## Podziękowania
 ![OVH](https://www.ovh.pl/images/logo/ovhLogoColor.svg)
 [Hosting, Chmura obliczeniowa i Serwery dedykowane - OVH](https://www.ovh.pl/)
+
+
+## Autorzy
+* [Adam Chrzanowski](https://github.com/chradam)
+* [Aleksandra Marzec](https://github.com/AleksMarzec)
+* [Marcin Borzymowski](https://github.com/BMarcin)
