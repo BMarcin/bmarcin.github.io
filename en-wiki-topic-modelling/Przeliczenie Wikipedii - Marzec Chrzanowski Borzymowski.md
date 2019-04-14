@@ -57,7 +57,7 @@ Plik zawiera reprezentację macierz Bag Of Words opisującą liczbę unikalnych 
 8602 8a05 1e8b a786 028a 0517 8da7 8602
 652e 
 ```
-Plik zawierający dodatkowe indeksy dla pliku *bow.mm*
+Plik zawierający dodatkowe indeksy dla pliku *results_bow.mm*
 ### results_bow.mm.metadata.cpickle
 ```
 8002 7d71 0028 4b00 5802 0000 0031 3271
@@ -101,7 +101,7 @@ Algorytm ma za zadanie przypisać niską wartość IDF dla najczęściej występ
 8a05 77b1 b5ab 058a 05de b8b5 ab05 8a05
 46c1 b5ab 058a 058b c5b5 ab05 652e 
 ```
-Plik zawierający indeksy dla pliku *tfidf.mm*
+Plik zawierający indeksy dla pliku *results_tfidf.mm*
 ### results.tfidf_model
 ```
 8002 6367 656e 7369 6d2e 6d6f 6465 6c73
